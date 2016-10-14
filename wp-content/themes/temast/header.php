@@ -9,3 +9,18 @@
     <?php wp_head(); ?>
 </head>
 <body>
+
+
+<header>
+    <div class="container">
+        <?php 
+        $args = array(
+            'theme_location' => 'header-menu'
+        );
+        
+        wp_nav_menu($args); 
+        
+        
+        ?>
+    </div>
+</header>

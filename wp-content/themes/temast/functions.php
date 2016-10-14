@@ -41,3 +41,11 @@ register_post_type('imovel', $args);
 }
 
 add_action('init', 'cadastrando_post_type_imoveis');
+
+
+//CRIANDO MENU NAS PAGINAS
+
+function registrar_menu_navegacao() {
+    register_nav_menu('header-menu', 'main-menu');
+}
+add_action( 'init', 'registrar_menu_navegacao');
