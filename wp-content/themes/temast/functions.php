@@ -84,3 +84,9 @@ function taxonomia_localizacao(){
 }
 
 add_action('init', 'taxonomia_localizacao');
+
+function is_selected_taxonomy($taxonomy, $search) {
+	if($taxonomy->slug === $search) {
+		echo 'selected';
+	}
+}
