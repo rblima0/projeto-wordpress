@@ -44,8 +44,43 @@ add_action('init', 'cadastrando_post_type_imoveis');
 
 
 //CRIANDO MENU NAS PAGINAS
-
 function registrar_menu_navegacao() {
     register_nav_menu('header-menu', 'main-menu');
 }
 add_action( 'init', 'registrar_menu_navegacao');
+
+//CRIANDO TITULO DOS MENUS
+function get_titulo() {
+	if( is_home() ) {
+		bloginfo('name');
+	} else {
+		bloginfo('name');
+		echo ' | ';
+		the_title();
+	}
+}
+
+//CRIANDO TAXONOMIA
+function taxonomia_localizacao(){
+    $singular = 'Localização';
+    $plural = 'Localizações';
+    
+    $labels = array(
+        'name' => $plural,
+        'singular_name' => $singular,
+        'view_item' => 'Ver ' . $singular,
+        'edit_item' => 'Editar ' . $singular,
+        'new_item' => 'Novo ' . $singular,
+        'add_new_item' => 'Adicionar novo ' . $singular
+    );
+    
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true
+    );
+    
+    register_taxonomy('Localizacao', 'imovel', $args);
+}
+
+add_action('init', 'taxonomia_localizacao');

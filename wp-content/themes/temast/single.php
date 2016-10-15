@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+    $css_especifico = 'single';
+    require_once('header.php');
+?>
 
 <main>
     <article>
@@ -8,7 +11,7 @@
                 the_post(); 
         ?>
 
-        <div class="single-imovel-thumbnail text-center">
+        <div class="single-imovel-thumbnail">
             <?php the_post_thumbnail(); ?>
         </div>
 
@@ -18,7 +21,7 @@
             </section>
 
             <section class="single-imovel-geral">
-                <div class="single-imovel-descrição">
+                <div class="single-imovel-descricao">
                     <?php the_content(); ?>
                 </div>
             </section>
